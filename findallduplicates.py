@@ -24,13 +24,14 @@ class Solution(object):
     def find_duplicates_2(self,nums):    # O(n) # No extra space # using reference logic
         retur_ = []
         for i in range(len(nums)):
-            if abs(nums[nums[i]-1]) < 0:
-                retur_.append(nums[i])
+            if nums[abs(nums[i])] < 0:
+                retur_.append(abs(nums[i]))
             else:
-                nums[nums[i]-1] = -1 * nums[nums[i]-1]
+                print(nums[nums[i]])
+                nums[nums[i]] = -1 * nums[nums[i]]
         return retur_
 
 
 obj = Solution()
-print(obj.find_duplicates_2([4,3,2,7,8,2,3,1]))
+print(obj.find_duplicates_2([4,3,2,7,7,2,3,1,2,2]))
 
